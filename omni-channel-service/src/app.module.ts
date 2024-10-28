@@ -1,8 +1,11 @@
 import { Module, OnModuleInit } from '@nestjs/common';
 import { Kafka } from 'kafkajs';
+import { WebhookController } from './webhook/webhook.controller';
 import Axios from 'axios';
 
-@Module({})
+@Module({
+  controllers: [WebhookController],
+})
 export class AppModule implements OnModuleInit {
   async onModuleInit() {
     const kafka = new Kafka({
